@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <style>
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            background-color: antiquewhite;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: -15px;
+            font-size: 35px;
+            font-weight: 300;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 10px;
+            width: 430px;
+            height: 300px;
+            margin: 5px auto;
+            padding: 20px;
+            background-color: honeydew;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 7px;
+        }
+        
+        .disp button {
+            width: 100px;
+            margin: 20px 0;
+            padding: 0px;
+            background-color: #121211;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .disp button:hover {
+            background-color: #038b53;
+        }
+        
+        span {
+            font-size: 18px;
+            font-weight: 300;
+        }
+        
+        .disp {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #total-cost {
+            padding-top: 20px;
+            padding-left: 2cm;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        
+        .edit,
+        .delete {
+            width: 60px;
+            margin: 10px 5px;
+            padding: 8px 0px;
+            background-color: #121211;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #results {
+            /* outline: 5px solid brown; */
+            width: 600px;
+            height: 400px;
+            margin-top: 5%;
+            margin-left: 29%;
+            box-shadow: 15px 15px 5px 10px rgba(230, 34, 34, 0.2);
+        }
+        
+        #shopping-list {
+            /* list-style: none; */
+            display: grid;
+            justify-content: space-between;
+            width: 100%;
+            margin: 2% 0px 2% -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="shopping-form">
+        <div class="grid">
+            <h1>Shopping List</h1>
+            <div class="grid-item">
+                <label for="item">Item:</label>
+                <input type="text" id="item" name="item" required placeholder="Type in an Item" />
+            </div>
+            <div class="grid-item">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required />
+            </div>
+            <div class="grid-item">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required />
+            </div>
+            <div class="disp">
+                <button type="submit">
+						<span>Submit</span>
+					</button>
+                <p id="total-cost">Total Cost: ₦0.00</p>
+            </div>
+        </div>
+    </form>
+
+    <div id="results" class="results">
+        <ol>
+            <li id="shopping-list"></li>
+        </ol>
+    </div>
+
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+                const shoppingForm =
+                    document.getElementById(
+                        "shopping-form"
+                    );
+                const shoppingList =
+                    document.getElementById(
+                        "shopping-list"
+                    );
+
+                const totalCost =
+                    document.getElementById("total-cost");
+
+                let items = [];
+
+                shoppingForm.addEventListener(
+                    "submit",
+                    function(e) {
+                        e.preventDefault();
+
+                        const item =
+                            document.getElementById(
+                                "item"
+                            ).value;
+                        const price = parseFloat(
+                            document.getElementById("price")
+                            .value
+                        );
+                        const quantity = parseInt(
+                            document.getElementById(
+                                "quantity"
+                            ).value
+                        );
+
+                        if (
+                            item &&
+                            !isNaN(price) &&
+                            !isNaN(quantity)
+                        ) {
+                            const cost = price * quantity;
+                            const shoppingRecord = {
+                                item,
+                                price,
+                                quantity,
+                                cost,
+                            };
+                            items.push(shoppingRecord);
+
+                            displayShoppingRecord(
+                                shoppingRecord
+                            );
+                            updateTotalCost();
+                        }
+
+                        shoppingForm.reset();
+                    }
+                );
+
+                shoppingList.addEventListener(
+                    "click",
+                    function(e) {
+                        if (
+                            e.target.classList.contains(
+                                "delete"
+                            )
+                        ) {
+                            const index =
+                                e.target.dataset.index;
+                            items.splice(index, 1);
+                            displayShoppingRecords();
+                            updateTotalCost();
+                        } else if (
+                            e.target.classList.contains(
+                                "edit"
+                            )
+                        ) {
+                            const index =
+                                e.target.dataset.index;
+                            const editedItem = items[index];
+
+                            document.getElementById(
+                                "item"
+                            ).value = editedItem.item;
+
+                            document.getElementById(
+                                "price"
+                            ).value = editedItem.price;
+
+                            document.getElementById(
+                                "quantity"
+                            ).value = editedItem.quantity;
+
+                            if (!isNaN(newPrice) &&
+                                !isNaN(newQuantity)
+                            ) {
+                                total =
+                                    total -
+                                    editedItem.cost +
+                                    newPrice * newQuantity;
+                                editedItem.price = newPrice;
+                                editedItem.quantity =
+                                    newQuantity;
+                                editedItem.cost =
+                                    newPrice * newQuantity;
+                                displayShoppingRecords();
+                                updateTotalCost();
+                            }
+                        }
+                    }
+                );
+
+                //testArr4.splice(3,3,{item: "getElementById(item)", price: "getElementById(price)", quantity: "getElementById(quantity)"})
+                // let newItem = prompt("Enter your new item",
+                //                             document.getElementById(
+                //                                 "item"
+                //                             ).value )
+
+                //                             let newPrice = prompt("Enter new price",
+                //                             document.getElementById(
+                //                                 "price"
+                //                             ).value )
+
+                //                             let newQuantity = prompt("Enter new quantity",
+                //                             document.getElementById(
+                //                                 "quantity"
+                //                             ).value )
+
+                function displayShoppingRecord(record) {
+                    const li =
+                        document.createElement("li");
+                    li.innerHTML = `${
+							record.item
+						} - Price: &#8358;${record.price.toFixed(
+							2
+						)} - Quantity: ${
+							record.quantity
+						} - Cost: &#8358;${record.cost.toFixed(
+							2
+						)} <button class="delete" data-index="${items.indexOf(
+							record
+						)}">Delete</button>
+			         <button class="edit" onclick="editItem" data-index="${items.indexOf(
+									record
+								)}">Edit</button>`;
+                    shoppingList.appendChild(li);
+                }
+
+                function displayShoppingRecords() {
+                    shoppingList.innerHTML = "";
+                    items.forEach(displayShoppingRecord);
+                }
+
+                function updateTotalCost() {
+                    const costArray = items.map(
+                        (item) => item.cost
+                    );
+                    const total = costArray.reduce(
+                        (acc, cur) => acc + cur,
+                        0
+                    );
+                    totalCost.innerText = `Total Cost: ₦${total.toFixed(
+							2
+						)}`;
+                }
+            }
+        );
+    </script>
+</body>
+
+</html>
