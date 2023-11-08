@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airtime Voucher Generator</title>
+    <link rel="stylesheet" href="recharge_card.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mt. Fibby Telecomms</h1>
+        <h3>Airtime Voucher Generator</h3>
+        <div class="voucher">
+            <select name="Networks" id="Networks">
+					<option value="MTN">MTN</option>
+					<option value="GLO">GLO</option>
+					<option value="AIRTEL">AIRTEL</option>
+					<option value="9MOBILE">9MOBILE</option>
+				</select>
+
+            <select name="Amount" id="Amount">
+					<option value="100">100</option>
+					<option value="200">200</option>
+					<option value="500">500</option>
+					<option value="1000">1000</option>
+				</select>
+            <button onclick="genPin()">
+					Generate Voucher
+				</button>
+        </div>
+        <h1 id="dispPin"></h1>
+        <div class="network">
+            <div class="coupon-card" id="mtn">
+                <img src="/MTN LOGO 1.jpeg" class="logo" />
+                <h5>MTN</h5>
+
+                <input type="text" name="" id="loadMTN" placeholder="*555*#" />
+                <button onclick="loadMtnCard()">
+						Load Airtime
+					</button>
+            </div>
+
+            <div class="coupon-card" id="glo">
+                <img src="/GLO LOGO.png" class="logo" />
+                <h5>GLO</h5>
+                <input type="text" name="" id="loadGLO" placeholder="*123*#" />
+                <button onclick="loadGloCard()">
+						Load Airtime
+					</button>
+            </div>
+        </div>
+        <div class="network">
+            <div class="coupon-card" id="airtel">
+                <img src="/AIRTEL LOGO.png" class="logo" />
+                <h5>AIRTEL</h5>
+                <input type="text" name="" id="loadAIRTEL" placeholder="*126*#" />
+                <button onclick="loadAirtelCard()">
+						Load Airtime
+					</button>
+            </div>
+            <div class="coupon-card" id="mobile">
+                <img src="/9MOBILE LOGO.jpeg" class="logo" />
+                <h5>9MOBILE</h5>
+                <input type="text" name="" id="loadMOBILE" placeholder="*312*#" />
+                <button onclick="loadMobileCard()">
+						Load Airtime
+					</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let Amount =
+            document.getElementById("Amount");
+        let Networks =
+            document.getElementById("Networks");
+        let loadMTN =
+            document.getElementById("loadMTN");
+        let loadGLO =
+            document.getElementById("loadGLO");
+        let loadAIRTEL =
+            document.getElementById("loadAIRTEL");
+        let loadMOBILE =
+            document.getElementById("loadMOBILE");
+
+        function genPin() {
+            let pin = Math.floor(
+                Math.random() * 90000000 * 3000000
+            );
+            dispPin.innerHTML = pin;
+            alert(
+                `You have generated ${Networks.value} of ${Amount.value}`
+            );
+        }
+
+        function loadMtnCard() {
+            let pin =
+                document.getElementById(
+                    "dispPin"
+                ).innerHTML;
+            if (!loadMTN.value.startsWith("*555*") ||
+                !loadMTN.value.endsWith("#")
+            ) {
+                alert("Invalid Code!");
+            } else if (Networks.value !== "MTN") {
+                alert("Invalid Network Provider!");
+            } else {
+                alert(
+                    `You have recharged ${Networks.value} of ${Amount.value}`
+                );
+            }
+        }
+
+        function loadGloCard() {
+            let pin =
+                document.getElementById(
+                    "dispPin"
+                ).innerHTML;
+            if (!loadGLO.value.startsWith("*123*") ||
+                !loadGLO.value.endsWith("#")
+            ) {
+                alert("Invalid Code!");
+            } else if (Networks.value !== "GLO") {
+                alert("Invalid Network Provider!");
+            } else {
+                alert(
+                    `You have recharged ${Networks.value} of ${Amount.value}`
+                );
+            }
+        }
+
+        function loadAirtelCard() {
+            let pin =
+                document.getElementById(
+                    "dispPin"
+                ).innerHTML;
+            if (!loadAIRTEL.value.startsWith("*126*") ||
+                !loadAIRTEL.value.endsWith("#")
+            ) {
+                alert("Invalid Code!");
+            } else if (Networks.value !== "AIRTEL") {
+                alert("Invalid Network Provider!");
+            } else {
+                alert(
+                    `You have recharged ${Networks.value} of ${Amount.value}`
+                );
+            }
+        }
+
+        function loadMobileCard() {
+            let pin =
+                document.getElementById(
+                    "dispPin"
+                ).innerHTML;
+            if (!loadMOBILE.value.startsWith("*312*") ||
+                !loadMOBILE.value.endsWith("#")
+            ) {
+                alert("Invalid Code!");
+            } else if (Networks.value !== "9MOBILE") {
+                alert("Invalid Network Provider!");
+            } else {
+                alert(
+                    `You have recharged ${Networks.value} of ${Amount.value}`
+                );
+            }
+        }
+    </script>
+</body>
+
+</html>

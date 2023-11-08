@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="pngpotify_icon_2-removebg-preview.png" />
+    <script src="https://kit.fontawesome.com/15d061e453.js" crossorigin="anonymous"></script>
+    <title>Signup || Freelancer</title>
+</head>
+
+<body id="s-body">
+    <div class="head-style">
+        <img src="freelancer-logo.svg" alt="" />
+        <div class="bar">
+            <p class="cont">Sign up</p>
+            <a href="#"><i
+						class="fa-brands fa-facebook"
+						style="color: #fff"
+					></i
+					>Continue with Facebook</a
+				>
+
+				<div class="hrs">
+					<hr />
+					<p>OR</p>
+					<hr />
+				</div>
+			</div>
+			<div class="bar">
+				<form action="login_page.html">
+					<div class="input-grid">
+						<div class="name">
+							<input
+								type="text"
+								placeholder="First Name"
+								required
+							/>
+							<input
+								type="text"
+								placeholder="Last Name"
+								required
+							/>
+						</div>
+
+						<input
+							type="email"
+							name=""
+							class="input"
+							placeholder="Enter your email."
+							required
+						/>
+
+						<input
+							type="password"
+							id="pass"
+							class="input"
+							placeholder="Create a password."
+							required
+							minlength="8"
+							maxlength="10"
+						/>
+
+						<input
+							type="password"
+							id="pass2"
+							class="input"
+							placeholder="Confirm password."
+							required
+							minlength="8"
+							maxlength="10"
+						/>
+						<ins
+							>Min 6 characters of lower and
+							uppercase or a number.</ins
+						>
+					</div>
+
+					<div class="small">
+						<a href="#" class="a1"
+							><i
+								class="fa-regular fa-eye-slash"
+								onClick="show()"
+							></i
+						></a>
+
+            <a href="#" class="a2"><i
+								class="fa-regular fa-eye-slash"
+								onClick="show()"
+							></i
+						></a>
+        </div>
+
+        <div class="form-down">
+            <div class="adverts">
+                <div class="adverts-1">
+                    <br />
+                    <input type="checkbox" for="mail" unchecked="" />
+                    <article id="acct">
+                        I agree to the Freelancer
+                        <ins>User </ins> and
+                        <ins>Privacy Policy.</ins>
+                    </article>
+                </div>
+            </div>
+
+            <button>Join Freelancer</button>
+            <article class="acct">
+                Already have an account?
+                <ins><a href="login_page.html"
+									>Log in.</a
+								></ins
+							>
+						</article>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script>
+			function show() {
+				var x = document.getElementById("pass");
+				var y = document.getElementById("pass2");
+				if (x.type === "password") {
+					x.type = "text";
+				} else {
+					x.type = "password";
+				}
+
+				if (y.type === "password") {
+					y.type = "text";
+				} else {
+					y.type = "password";
+				}
+			}
+		</script>
+	</body>
+</html>

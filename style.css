@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Signup_page.html */
+
+#s-body {
+    background-color: whitesmoke;
+    --txt: black;
+    display: flex;
+    justify-content: center;
+}
+
+.bar {
+    display: grid;
+    place-items: center;
+    margin-right: 25%;
+}
+
+.head-style {
+    display: grid;
+    height: 125vh;
+    width: 40%;
+    background-color: white;
+    place-items: center;
+    border: 1px;
+    border-bottom: style;
+    border-color: #e2e8f0;
+}
+
+.head-style img {
+    width: 195px;
+    height: 55px;
+    padding: 20px 30% 0px 0px;
+    vertical-align: text-top;
+    letter-spacing: 0.5rem;
+}
+
+.bar form {
+    margin-left: 35%;
+}
+
+.bar .cont {
+    font-size: 28px;
+    font-family: poppins;
+    font-weight: bolder;
+    line-height: 2;
+    margin: 5px 0px;
+    letter-spacing: 0.5;
+}
+
+.bar a {
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+    border-color: #cbd5e0;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 7px;
+    padding: 12px;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    margin-top: 2px;
+    width: 340px;
+}
+
+.acct a {
+    border: none;
+    font-size: 8px;
+    letter-spacing: 0.5px;
+    padding: 0px;
+}
+
+.bar .fa-facebook {
+    position: relative;
+    font-size: 22px;
+    text-align: left;
+    padding-right: 15px;
+}
+
+.bar a:nth-child(2) {
+    background-color: rgb(66, 103, 178);
+    color: white;
+    margin-top: 10px;
+}
+
+.bar .hrs {
+    display: inline-flex;
+}
+
+.bar hr {
+    width: 165px;
+    height: 0px;
+    margin-top: 31px;
+}
+
+.bar .hrs p {
+    font-size: 18px;
+    font-family: "Poppins";
+    font-weight: bolder;
+    color: grey;
+    padding: 0px 20px;
+    margin-top: 21px;
+}
+
+.input-grid {
+    display: grid;
+}
+
+.form-label {
+    padding-bottom: 12px;
+}
+
+.bar .input {
+    padding: 15px;
+    width: 435px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.bar .input:nth-child(2) {
+    margin-bottom: 30px;
+}
+
+.bar ins {
+    color: grey;
+    font-size: 12px;
+    font-family: poppins;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: -4%;
+}
+
+#acct ins {
+    color: rgb(82, 146, 241);
+    font-size: 12px;
+    font-family: poppins;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: -5%;
+}
+
+label {
+    font-size: 2px;
+    font-family: "Poppins";
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.bar article {
+    color: #101010;
+    font-size: 6px;
+    font-family: "Poppins";
+    font-weight: 500;
+    position: relative;
+    top: -15px;
+}
+
+.bar .dob {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 60%;
+    gap: 3px;
+}
+
+.bar .dob input {
+    width: 15%;
+    font-style: Poppins;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.bar .dob select {
+    width: 45%;
+    font-style: "Montserrat";
+    border-style: solid;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #181818;
+}
+
+.bar .profile {
+    display: grid;
+}
+
+.bar .gender {
+    display: grid;
+    margin-top: 20px;
+}
+
+.bar .gender-label {
+    padding-bottom: 10px;
+}
+
+.bar .gender-input {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+    letter-spacing: 0.5;
+}
+
+.gender .gender-input input[type="radio"] {
+    font-style: Courier;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-down {
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: lighter;
+    margin-top: 5%;
+}
+
+.form-down article {
+    font-style: "Poppins";
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.small {
+    text-align: left;
+    position: relative;
+    margin-top: 10px;
+}
+
+.small .a1 {
+    border: none;
+    color: black;
+    position: absolute;
+    bottom: 105px;
+    font-size: 14px;
+    right: 2cm;
+    color: none;
+}
+
+.small .a2 {
+    border: none;
+    color: black;
+    position: absolute;
+    bottom: 30px;
+    font-size: 14px;
+    right: 2cm;
+    color: white;
+    padding: 0px 0px;
+}
+
+.form-down button {
+    background-color: rgb(23, 114, 235);
+    color: #fff;
+    width: 290px;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 0;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: "Poppins";
+    cursor: pointer;
+    margin-top: -4%;
+    margin-left: -35%;
+    vertical-align: top;
+    height: 50px;
+}
+
+.form-down button:hover {
+    background-color: rgb(66, 103, 178);
+    width: 298px;
+    height: 55px;
+    transition: all ease-out 0.03s;
+}
+
+.form-down input {
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: lighter;
+    font-style: "Poppins";
+}
+
+.adverts {
+    /* display: grid; */
+    position: relative;
+    width: 700px;
+    font-style: "Poppins";
+    margin-top: -25px;
+    margin-bottom: 10px;
+}
+
+.adverts-1 {
+    margin-top: -25px;
+    display: inline-flex;
+}
+
+.adverts input[type="checkbox"] {
+    font-style: 5px;
+    margin: 8px 20px 25px 0px;
+    padding-bottom: 5px;
+    letter-spacing: 0.3;
+    font-weight: 500;
+    font-style: "Poppins";
+}
+
+.form-down .acct {
+    margin-right: 30%;
+    padding-top: -23px;
+    font-size: 12px;
+}
+
+.form-down .sided {
+    width: 70%;
+    text-align: center;
+}
+
+.name {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.name input[type="text"] {
+    padding: 17px;
+    width: 190px;
+    margin: 5px 8px 5px 0px;
+    border-radius: 5px;
+}
+
+.form-down a {
+    color: rgb(82, 146, 241);
+    font-family: Poppins;
+}

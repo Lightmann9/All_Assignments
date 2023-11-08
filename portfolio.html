@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <style>
+        .box {
+            height: 100vh;
+            width: 100%;
+            background-color: #c3cadb;
+            font-family: Dosis;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 95px;
+            font-weight: 500;
+        }
+        
+        .text {
+            margin: auto;
+        }
+        
+        .text {
+            font-size: 95px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id="text"></div>
+    </div>
+</body>
+<script>
+    var message = "I am a Developer!";
+    var speed = 200;
+
+    var i = 0;
+
+    function textTyping() {
+        document.getElementById("text").innerHTML +=
+            message.charAt(i);
+        i++;
+
+        setTimeout(textTyping, speed);
+    }
+    textTyping();
+
+    // var i = 17;
+
+    // function textDeleting() {
+    //     document.getElementById("text").innerHTML +=
+    //         message.charAt(i - 1);
+    //     i++;
+
+    //     setTimeout(textDeleting, speed);
+    // }
+    // textDeleting();
+</script>
+
+</html>
